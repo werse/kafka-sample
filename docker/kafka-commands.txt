@@ -1,0 +1,18 @@
+# list of topics
+kafka-topics.sh --list --bootstrap-server kafka:9092
+
+# describe topic
+kafka-topics.sh --describe --bootstrap-server kafka:9092 --topic de-json
+
+# messages in all partitions
+kafka-console-consumer.sh --bootstrap-server kafka:9092 --from-beginning --topic de-json
+
+
+# message in one partition
+kafka-console-consumer.sh --bootstrap-server kafka:9092 --from-beginning --topic de-json --partition 3
+
+# create kafka-connector
+curl -XPOST localhost:8083/connectors -d @es_connect.json -H 'content-type:application/json'
+
+# delete kafka-connector
+curl -XDELETE localhost:8083/connectors/es-sink

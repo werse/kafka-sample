@@ -1,0 +1,7 @@
+* text=auto eol=lf
+
+# use always lf end of lines for bash scripts
+*.sh text eol=lf
+
+*.* text eol=lf
+
